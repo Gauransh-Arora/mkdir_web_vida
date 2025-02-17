@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Site</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef7ff;
+            color: #333;
+        }
+
+        .container {
+            width: 85%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        header {
+            background: black;
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        nav ul {
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            color: maroon;
+        }
+
+        .hero {
+            background: url('https://media.istockphoto.com/id/1409722748/photo/students-raising-hands-while-teacher-asking-them-questions-in-classroom.jpg?s=612x612&w=0&k=20&c=NbVChOV9wIbQOhUD6BqpouZHHBbyQ2rkSjaVfIhpMv8=') no-repeat center center/cover;
+            color: white;
+            text-align: left;
+            padding: 100px 20px;
+            position: relative;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h2,
+        .hero p,
+        .hero .btn {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            background: black;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .btn:hover {
+            background: maroon;
+            transform: scale(1.1);
+        }
+
+        section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .about {
+            background: #fff;
+            text-align: left;
+            animation: slideInLeft 1s ease-in-out;
+        }
+
+        .ourservices {
+            background: #caf0f8;
+            animation: slideInRight 1s ease-in-out;
+        }
+
+        .items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+            margin-top: 20px;
+        }
+
+        .project {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact {
+            background: #90e0ef;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: black;
+            color: white;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .logo-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .logo {
+            width: auto;
+            height: 80px;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .logo:hover {
+            transform: rotate(360deg);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        /* Quiz Styles */
+        .quiz {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .quiz h3 {
+            margin-bottom: 20px;
+        }
+
+        .quiz label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        .quiz input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .quiz button {
+            margin-top: 20px;
+        }
+
+        .chart-container {
+            width: 50%;
+            margin: 20px auto;
+        }
+
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .dark-mode {
+            --bg-color: #121212;
+            --text-color: #ffffff;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <div class="logo-container">
+                        <img src="logo.jpg" alt="Logo" class="logo">
+                    </div>
+
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#course">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#quiz">Career Test</a></li>
+                    <li><button onclick="toggleDarkMode()">Toggle Dark Mode</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Get Right Career Options</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, </p>
+            <a href="#register" class="btn">Register</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat.</p>
+        </div>
+    </section>
+
+    <section id="course" class="course ourservices">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="items">
+                <div class="project">
+                    <h3>Career Counselling</h3>
+                    <p>Our career counselling services help you identify your strengths and interests, guiding you
+                        towards a fulfilling career path.</p>
+                </div>
+                <div class="project">
+                    <h3>Psychological Counselling</h3>
+                    <p>We offer psychological counselling to support your mental health and well-being, helping you
+                        overcome personal challenges.</p>
+                </div>
+                <div class="project">
+                    <h3>Restart Your Career</h3>
+                    <p>Our 'Restart Your Career' program is designed for individuals looking to re-enter the workforce
+                        or make a career change.</p>
+                </div>
+                <div class="project">
+                    <h3>Personality Development</h3>
+                    <p>Enhance your personal and professional skills with our personality development programs,
+                        including communication and leadership training.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quiz" class="quiz">
+        <div class="container">
+            <h2>Career Assessment Test</h2>
+            <form id="careerQuiz">
+                <div class="question">
+                    <h3>Question 1: Do you prefer working in teams or individually?</h3>
+                    <label><input type="radio" name="q1" value="team"> Team</label>
+                    <label><input type="radio" name="q1" value="individual"> Individually</label>
+                </div>
+                <div class="question">
+                    <h3>Question 2: Are you more creative or analytical?</h3>
+                    <label><input type="radio" name="q2" value="creative"> Creative</label>
+                    <label><input type="radio" name="q2" value="analytical"> Analytical</label>
+                </div>
+                <div class="question">
+                    <h3>Question 3: Do you enjoy problem-solving?</h3>
+                    <label><input type="radio" name="q3" value="yes"> Yes</label>
+                    <label><input type="radio" name="q3" value="no"> No</label>
+                </div>
+                <div class="question">
+                    <h3>Question 4: Are you interested in technology?</h3>
+                    <label><input type="radio" name="q4" value="yes"> Yes</label>
+                    <label><input type="radio" name="q4" value="no"> No</label>
+                </div>
+                <div class="question">
+                    <h3>Question 5: Do you prefer a structured or flexible work environment?</h3>
+                    <label><input type="radio" name="q5" value="structured"> Structured</label>
+                    <label><input type="radio" name="q5" value="flexible"> Flexible</label>
+                </div>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+            <div class="chart-container">
+                <canvas id="careerChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="psychologicalCounselling" class="psychologicalCounselling">
+        <div class="container">
+            <h2>Psychological Counselling</h2>
+            <p>Our psychological counselling services are designed to help you overcome personal challenges and improve
+                your mental well-being.</p>
+            <div class="items">
+                <div class="project">
+                    <h3>Individual Counselling</h3>
+                    <p>One-on-one sessions with a licensed counsellor to address your specific needs.</p>
+                </div>
+                <div class="project">
+                    <h3>Group Counselling</h3>
+                    <p>Join a group of peers to discuss common issues and find support.</p>
+                </div>
+                <div class="project">
+                    <h3>Workshops</h3>
+                    <p>Participate in workshops focused on stress management, anxiety reduction, and more.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="personalityDevelopment" class="personalityDevelopment">
+        <div class="container">
+            <h2>Personality Development</h2>
+            <p>Enhance your personal and professional skills with our personality development programs.</p>
+            <div class="items">
+                <div class="project">
+                    <h3>Communication Skills</h3>
+                    <p>Improve your verbal and non-verbal communication skills.</p>
+                </div>
+                <div class="project">
+                    <h3>Leadership Training</h3>
+                    <p>Develop leadership qualities and learn how to lead effectively.</p>
+                </div>
+                <div class="project">
+                    <h3>Confidence Building</h3>
+                    <p>Boost your self-confidence and self-esteem through various activities and exercises.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="feedback" class="feedback">
+        <div class="container">
+            <h2>Feedback</h2>
+            <p>We value your feedback! Please let us know your thoughts.</p>
+            <form id="feedbackForm">
+                <input type="text" id="feedbackName" placeholder="Your Name" required>
+                <input type="email" id="feedbackEmail" placeholder="Your Email" required>
+                <textarea id="feedbackMessage" placeholder="Your Feedback" required></textarea>
+                <button type="submit" class="btn">Submit Feedback</button>
+            </form>
+        </div>
+    </section>
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Have questions? Reach out to us!</p>
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for form submission feedback
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            alert('Thank you for contacting us! We will get back to you soon.');
+            document.getElementById('contactForm').reset();
+        });
+
+        // JavaScript for feedback form submission
+        document.getElementById('feedbackForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            alert('Thank you for your feedback!');
+            document.getElementById('feedbackForm').reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Career Quiz Logic
+        document.getElementById('careerQuiz').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const answers = {
+                q1: document.querySelector('input[name="q1"]:checked').value,
+                q2: document.querySelector('input[name="q2"]:checked').value,
+                q3: document.querySelector('input[name="q3"]:checked').value,
+                q4: document.querySelector('input[name="q4"]:checked').value,
+                q5: document.querySelector('input[name="q5"]:checked').value
+            };
+
+            const results = calculateCareer(answers);
+            displayChart(results);
+        });
+
+        function calculateCareer(answers) {
+            let tech = 0, creative = 0, management = 0, research = 0;
+
+            if (answers.q1 === 'team') management += 1;
+            if (answers.q1 === 'individual') research += 1;
+
+            if (answers.q2 === 'creative') creative += 1;
+            if (answers.q2 === 'analytical') tech += 1;
+
+            if (answers.q3 === 'yes') tech += 1;
+            if (answers.q3 === 'no') creative += 1;
+
+            if (answers.q4 === 'yes') tech += 1;
+            if (answers.q4 === 'no') management += 1;
+
+            if (answers.q5 === 'structured') management += 1;
+            if (answers.q5 === 'flexible') creative += 1;
+
+            const total = tech + creative + management + research;
+            return {
+                tech: (tech / total) * 100,
+                creative: (creative / total) * 100,
+                management: (management / total) * 100,
+                research: (research / total) * 100
+            };
+        }
+
+        function displayChart(results) {
+            const ctx = document.getElementById('careerChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Technology', 'Creative', 'Management', 'Research'],
+                    datasets: [{
+                        label: 'Career Suitability',
+                        data: [results.tech, results.creative, results.management, results.research],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Career Suitability'
+                        }
+                    }
+                }
+            });
+        }
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+
+</html>
